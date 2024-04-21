@@ -1,0 +1,19 @@
+.unread {
+    font-weight: bold;
+}
+
+.mark-read {
+    cursor: pointer;
+}
+
+.mark-read:hover{
+    color: chartreuse;
+}
+
+.fa-trash {
+    cursor: pointer;
+}
+
+.fa-trash:hover {
+    color: red;
+}

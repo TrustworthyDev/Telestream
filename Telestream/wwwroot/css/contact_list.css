@@ -1,0 +1,19 @@
+.custom-file-label::after {
+    content: '';
+}
+
+.fa-eye {
+    cursor: pointer;
+}
+
+.fa-eye:hover {
+    color: chartreuse;
+}
+
+.fa-trash {
+    cursor: pointer;
+}
+
+.fa-trash:hover {
+    color: red;
+}

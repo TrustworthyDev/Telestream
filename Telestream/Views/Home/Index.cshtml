@@ -1,0 +1,85 @@
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+@section Styles
+{
+    <link type="text/css" href="~/css/index.css?v=1.2.0" rel="stylesheet" asp-append-version="true">
+    <link type="text/css" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="table-responsive">
+                <table class="table align-items-center table-flush" id="recent-table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Phone #</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Message</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Breadcrumbs
+{
+    <div class="col-lg-6 col-7">
+        <h6 class="h2 text-white d-inline-block mb-0">Dashboard</h6>
+    </div>
+
+    <div class="col-12">
+        <div class="row align-items-center">
+            <div class="col">
+                <div class="form-group mb-0">
+                    <div class="input-group input-group-alternative input-group-merge">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fas fa-search"></i>
+                            </span>
+                        </div>
+                        <input id='search-input' class="form-control" placeholder="Search Name" type="text" onchange="doSearch()">
+                        <button type="button" class="btn btn-primary ml-3" data-target="#navbar-search-main" onclick="doSearch()">
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="card mb-0 bg-danger">
+                <!-- Card body -->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <h5 class="card-title text-muted mb-0 text-white text-uppercase">Unread Messages</h5>
+                                <span class="h2 font-weight-bold mb-0 text-white" id="unread-span">6</span>
+                            </div>
+                            <div class="col-auto">
+                                <div class="icon icon-shape text-white">
+                                    <i class="fa fa-triangle-exclamation" style="font-size: 3em"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts
+{
+    <script src="~/js/index.js" asp-append-version="true"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap4.min.js"></script>
+}

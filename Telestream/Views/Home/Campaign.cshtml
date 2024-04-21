@@ -1,0 +1,95 @@
+@model List<ContactList>
+
+@{
+    ViewData["Title"] = "Campaign";
+}
+
+@section Breadcrumbs
+{
+    <div class="col-lg-6 col-7">
+        <h6 class="h2 text-white d-inline-block mb-0">Create Campaign</h6>
+    </div>
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card card-stats">
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="contact_list-select" class="form-control-label">Send To</label>
+                        <select class="form-control" id="contact_list-select" aria-placeholder="Select Contact List...">
+                            @foreach (ContactList item in Model)
+                            {
+                                <option value="@item.fileName">@item.displayName</option>    
+                            }
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message-textarea" class="form-control-label">Message</label>
+                        <textarea class="form-control" maxlength="1529" id="message-textarea" rows="10"></textarea>
+                        <span class="pull-right label label-default" id="count_message"></span>
+                    </div>
+
+                    <button type="button" class="btn btn-danger text-uppercase pull-right mt-1" onclick="createModal()">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-send" tabindex="-1" role="dialog" aria-labelledby="modal-send" aria-hidden="true">
+    <div class="modal-dialog modal- modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="text-center w-100">Send To</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body pt-0">
+                <form>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <label for="name-input" class="form-control-label">Send To</label>
+                            <input class="form-control ml-3" id="name-input" aria-placeholder="Andrew Rogers">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <label for="phone-input" class="form-control-label">Phone #</label>
+                            <input class="form-control ml-3" id="phone-input" aria-placeholder="267-891-9433">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message_preview-textarea" class="form-control-label">Message Preview</label>
+                        <textarea class="form-control" maxlength="1529" id="message_preview-textarea" rows="5"></textarea>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="button" class="btn bg-danger w-100 text-white" id="btn-send-sms" onclick="sendSMS()">SEND [Space]</button>
+                        <button type="button" class="btn bg-warning w-100 text-white mt-1" id="btn-skip-sms" onclick="skipSMS()">SKIP</button>
+                    </div>
+                    <p class="text-center m-0">
+                        <strong>Sent:</strong>
+                        &nbsp;
+                        <span id="sent-count"></span>
+                    </p>
+                    <p class="text-center m-0">
+                        <strong>Remaining:</strong>
+                        &nbsp;
+                        <span id="remaining-count"></span>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    <script src="~/js/campaign.js" asp-append-version="true"></script>   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.21/jquery.csv.min.js" integrity="sha512-Y8iWYJDo6HiTo5xtml1g4QqHtl/PO1w+dmUpQfQSOTqKNsMhExfyPN2ncNAe9JuJUSKzwK/b6oaNPop4MXzkwg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+}

@@ -1,0 +1,75 @@
+@model MessageSummaryModel
+
+<nav class="navbar navbar-top navbar-expand navbar-dark bg-primary">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="justify-content: flex-end;">
+            <ul class="navbar-nav align-items-center ml-md-auto">
+                <li class="nav-item d-xl-none">
+                    <!-- Sidenav toggler -->
+                    <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
+                        <div class="sidenav-toggler-inner">
+                            <i class="sidenav-toggler-line"></i>
+                            <i class="sidenav-toggler-line"></i>
+                            <i class="sidenav-toggler-line"></i>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="row">
+    <div class="col-xl-3 col-md-6">
+        <div class="card card-stats mb-1">
+            <!-- Card body -->
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <h5 class="card-title text-muted mb-0">Messages Sent (This Month)</h5>
+                        <span class="h2 font-weight-bold mb-0">@Model.nMonthSent</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card card-stats mb-1">
+            <!-- Card body -->
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <h5 class="card-title text-muted mb-0">Messages Received (This Month)</h5>
+                        <span class="h2 font-weight-bold mb-0">@Model.nMonthRecived</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card card-stats mb-1">
+            <!-- Card body -->
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <h5 class="card-title text-muted mb-0">Messages Sent (Today)</h5>
+                        <span class="h2 font-weight-bold mb-0">@Model.nTodaySent</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card card-stats mb-1">
+            <!-- Card body -->
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <h5 class="card-title text-muted mb-0">Messages Received (Today)</h5>
+                        <span class="h2 font-weight-bold mb-0">@Model.nTodayRecived</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

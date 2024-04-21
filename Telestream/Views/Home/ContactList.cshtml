@@ -1,0 +1,92 @@
+@model List<ContactList>
+
+@{
+    ViewData["Title"] = "Contact Lists";
+}
+
+@section Styles
+{
+    <link type="text/css" href="~/css/contact_list.css?v=1.2.0" rel="stylesheet" asp-append-version="true">
+}
+
+
+@section Breadcrumbs
+{
+    <div class="col-lg-6 col-7">
+        <h6 class="h2 text-white d-inline-block mb-0">Contact Lists</h6>
+    </div>
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card p-3">
+            <div class="mb-4">
+                <form enctype="multipart/form-data" method="post" action="/contact_list" id="contact-list-form">
+                    <div class="row align-items-center">
+                        <div class="col-3 text-right">
+                            <span>Choose File:</span>
+                        </div>
+                        <div class="col-6">
+                            <input type="file" id="contact-list-file" name="contactListFile" onchange="onFileChange()" hidden="true" id="file" accept=".csv"/>
+                            <input type="text" class="form-control" id="foto" onClick="ftt()"/>
+                        </div>
+                        <div class="col-3">
+                            <i class="fa fa-cloud-upload" style="font-size: 1.3em; cursor: pointer" onclick="submitForm()"></i>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="table-responsive">
+                <!-- Projects table -->
+                <table class="table align-items-center table-bordered">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">List Name</th>
+                            <th scope="col">Date Uploaded</th>
+                            <th scope="col">Options</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (ContactList item in Model)
+                        {
+                            <tr data-id="@item.id">
+                                <td>
+                                    @item.displayName
+                                </td>
+                                <td>
+                                    @item.uploadedAt
+                                </td>
+                                <td>
+                                    <i class="fa fa-eye mr-1" onclick="viewContactList('@item.fileName')"></i>|
+                                    <i class="fa-solid fa-trash ml-1" onclick="deleteContactList('@item.id')"></i>
+                                </td>
+                            </tr>    
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-contactlist-detail" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="text-center w-100"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body pt-0">
+                <div class="table-responsive" style="max-height: 80vh" id="csv-table-container"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/js/contact_list.js" asp-append-version="true"></script>   
+    <script src="~/lib/jQuery-Plugin-for-Converting-CSV-TSV-To-Table-CSVToTable/js/jquery.csvToTable.js"></script>
+}

@@ -1,0 +1,69 @@
+﻿<!-- Sidenav -->
+<nav class="sidenav navbar navbar-vertical fixed-left navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+    <div class="scrollbar-inner">
+
+        <!-- Brand -->
+        <div class="sidenav-header  align-items-center">
+            <a class="navbar-brand" href="javascript:void(0)">
+                <img src="~/img/brand/logo.png" class="navbar-brand-img" alt="Telestream">
+            </a>
+        </div>
+        <div class="navbar-inner">
+            <!-- Collapse -->
+            <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+
+                <!-- Collapse header -->
+                <div class="navbar-collapse-header d-md-none">
+                    <div class="row">
+                        <div class="col-6 collapse-brand">
+                            <a href="/">
+                                <img src="~/img/brand/logo.png">
+                            </a>
+                        </div>
+                        <div class="col-6 collapse-close">
+                            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link @(Context.Request.Path == "/" ? "active" : "")" href="@Url.Action("Index")">
+                            <i class="fa fa-house"></i>Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @(Context.Request.Path == "/campaign" ? "active" : "")" href="@Url.Action("Campaign")">
+                            <i class="fa fa-message"></i>Create Campaign
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @(Context.Request.Path == "/inbox" ? "active" : "")" href="@Url.Action("Inbox")">
+                            <i class="fa fa-envelope"></i>Inbox
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @(Context.Request.Path == "/contact_list" ? "active" : "")" href="@Url.Action("ContactList")">
+                            <i class="fa fa-users"></i>Contact List
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @(Context.Request.Path == "/settings" ? "active" : "")" href="@Url.Action("Settings")">
+                            <i class="fa fa-gear"></i>Settings
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        @* Brand *@
+        <a class="navbar-brand brand-footer py-0" href="javascript:void(0)">
+            <img src="~/img/brand/devlab_logo.png" class="navbar-brand-img" alt="Telestream">
+        </a>
+    </div>
+
+</nav>

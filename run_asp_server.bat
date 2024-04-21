@@ -1,0 +1,2 @@
+cd Telestream
+dotnet run
